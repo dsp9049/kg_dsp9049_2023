@@ -11,41 +11,48 @@ function numToWord(num) {
 		num = (num - rem) / 10;
 		switch(rem) {
 			case 0:
-				word = "zero" + word;
+				word = "Zero" + word;
 				break;
 			case 1:
-				word = "one" + word;
+				word = "One" + word;
 				break;
 			case 2:
-				word = "two"+ word;
+				word = "Two"+ word;
 				break;
 			case 3:
-				word = "three"+ word;
+				word = "Three"+ word;
 				break;
 			case 4:
-				word = "four" + word;
+				word = "Four" + word;
 				break;
 			case 5:
-				word = "five" + word;
+				word = "Five" + word;
 				break;
 			case 6:
-				word = "six" + word;
+				word = "Six" + word;
 				break;
 			case 7:
-				word = "seven" + word;
+				word = "Seven" + word;
 				break;
 			case 8:
-				word = "eight" + word;
+				word = "Eight" + word;
 				break;
 			case 9:
-				word = "nine" + word;
+				word = "Nine" + word;
 				break;
 		} //switch
 	} //while
 	return word;
 }
-console.log(numToWord(1234));
-console.log(numToWord(1234567890));
-console.log(numToWord(9876543210));
-console.log(numToWord(10));
-console.log(numToWord(0));
+
+function main() {
+	if (process.argv != null && process.argv.length >= 3) {
+		let finalWord = "";
+		process.argv.slice(2).forEach((arg) => {
+			finalWord += numToWord(arg) + ",";
+		});
+		console.log(finalWord.slice(0, -1)); // remove the extra comma at the end of the string
+	}
+}
+
+main();
